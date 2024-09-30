@@ -1,0 +1,55 @@
+<mvc:View
+    controllerName="uploadexcellsheet.controller.UploadView"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+        <VBox class="sapUiTinyMargin" renderType="Bare">
+			<MessageStrip
+				class="sapUiTinyMarginBottom"
+				visible="{=!${device>/browser/mobile}}"
+				showIcon="true"
+				type="Information"
+				text="To add Scope Items List, you can also use drag &amp; drop on your desktop or tablet." />
+			<Label text="Notes" />
+			
+		</VBox>
+           
+            <!-- <u:FileUploader
+                id="fileUploader"
+                name="myFileUpload"
+                change="handleUpload" 
+                uploadUrl="upload/"
+                tooltip="Upload your file to the local server"
+                uploadComplete="handleUploadComplete"
+            />
+            <Button
+                text="Upload File"
+                press="onUpload"
+            /> -->
+            	 <UploadCollection
+			id="fileUploader"
+				maximumFilenameLength="55"
+			maximumFileSize="10"
+			multiple="true"
+			sameFilenameAllowed="true"
+			instantUpload="false"
+			noDataDescription="Drop files or use the &quot;Add&quot; button to keep files ready for upload"
+			change="handleUpload"
+			fileDeleted="onFileDeleted"
+			filenameLengthExceed="onFilenameLengthExceed"
+			fileSizeExceed="onFileSizeExceed"
+			typeMissmatch="onTypeMissmatch"
+			uploadComplete="handleUploadComplete"
+			beforeUploadStarts="onBeforeUploadStarts" />
+		<Button class="butn" type="Emphasized" id="Button"  text="Upload File" press="onUpload" /> 
+        </content>
+       
+    </Page>
+</mvc:View>
